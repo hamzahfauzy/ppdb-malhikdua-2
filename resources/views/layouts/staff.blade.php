@@ -32,6 +32,17 @@
     <link rel="stylesheet" href="{{url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 
     <link rel="stylesheet" href="{{url('dist/css/adminlte.min.css')}}">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{url('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    @yield('style')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -164,12 +175,7 @@
         </footer>
     </div>
     <!-- ./wrapper -->
-
-    <!-- jQuery -->
-    <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="{{url('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
@@ -207,6 +213,13 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{url('dist/js/demo.js')}}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
 
     @yield('script')
 </body>

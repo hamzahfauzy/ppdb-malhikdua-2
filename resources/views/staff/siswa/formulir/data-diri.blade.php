@@ -56,3 +56,29 @@
         <option value="Tiri">Tiri</option>
     </select>
 </div>
+<div class="form-group">
+    <label for="">Agama</label>
+    <input type="text" name="diri[agama]" class="form-control">
+</div>
+<div class="form-group">
+    <label for="">Cita-Cita (tidak wajib)</label>
+    <input type="text" name="diri[cita_cita]" class="form-control">
+</div>
+<div class="form-group">
+    <label for="">Email siswa (jika tidak punya bisa gunakan email orangtua/kakak/saudara)</label>
+    <input type="text" name="diri[email]" class="form-control">
+</div>
+<div class="form-group">
+    <label for="">YANG MEMBIAYAI SEKOLAH</label>
+    <select name="diri[yang_membiayai_sekolah]" class="form-control">
+        <option value="-" selected disabled>- Pilih Opsi -</option>
+        <option value="ORANGTUA">ORANGTUA</option>
+        <option value="KAKAK">KAKAK</option>
+        <option value="LAINNYA (SEBUTKAN)">LAINNYA (SEBUTKAN)</option>
+    </select>
+    <input type="text" name="diri[yang_membiayai_sekolah]" placeholder="Lainnya... " class="form-control mt-2 d-none">
+</div>
+<div class="form-group">
+    <label for="">Nama Kepala Keluarga</label>
+    <input type="text" name="diri[nama_kepala_keluarga]" class="form-control">
+</div>

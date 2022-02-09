@@ -303,15 +303,35 @@ class SiswaController extends Controller
                 ) {
                     $kk = $request->file("upload_kk")->store("berkas");
                     $akte = $request->file("upload_akte")->store("berkas");
+
                     $ijazah = "";
                     if($request->file("upload_ijazah"))
                         $ijazah = $request->file("upload_ijazah")->store("berkas");
+
                     $shun = "";
                     if($request->file("upload_shun"))
                         $shun = $request->file("upload_shun")->store("berkas");
+
                     $kartu_pemerintah = "";
                     if($request->file("upload_kartu_pemerintah"))
                         $kartu_pemerintah = $request->file("upload_kartu_pemerintah")->store("berkas");
+
+                    $vaksin = "";
+                    if($request->file("upload_vaksin"))
+                        $vaksin = $request->file("upload_vaksin")->store("berkas");
+
+                    $kip = "";
+                    if($request->file("upload_kip"))
+                        $kip = $request->file("upload_kip")->store("berkas");
+
+                    $kks = "";
+                    if($request->file("upload_kks"))
+                        $kks = $request->file("upload_kks")->store("berkas");
+
+                    $pkh = "";
+                    if($request->file("upload_pkh"))
+                        $pkh = $request->file("upload_pkh")->store("berkas");
+
                     if ($kk && $akte) {
 
                         $berkas = new BerkasPendaftaran();
@@ -323,6 +343,10 @@ class SiswaController extends Controller
                             'upload_ijazah' => $ijazah,
                             'upload_shun' => $shun,
                             'upload_kartu_pemerintah' => $kartu_pemerintah,
+                            'upload_vaksin' => $vaksin,
+                            'upload_kip' => $kip,
+                            'upload_kks' => $kks,
+                            'upload_pkh' => $pkh,
                         ]))) {
                             DB::commit();
                             // $wa = new Fonnte;
