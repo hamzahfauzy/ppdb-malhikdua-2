@@ -36,8 +36,8 @@
                 <div class="alert alert-info">
                     BANTUAN PPDB HUB : 0819-0318-9474
                 </div>
-                <a href="https://wa.me/6285771838937?text=Assalamualaikum, saya mau daftar PPDB Malhikdua School." target="_blank" class="btn btn-success" style="margin-bottom: 10px;">Pendaftaran Peserta Didik Baru</a>
-                <!-- <a href="/daftar" class="btn btn-success" style="margin-bottom: 10px;">Pendaftaran Peserta Didik Baru</a> -->
+                <!-- <a href="https://wa.me/6285771838937?text=Assalamualaikum, saya mau daftar PPDB Malhikdua School." target="_blank" class="btn btn-success" style="margin-bottom: 10px;">Pendaftaran Peserta Didik Baru</a> -->
+                <a href="/daftar" class="btn btn-success" style="margin-bottom: 10px;">Pendaftaran Peserta Didik Baru</a>
                 <a href="/check" class="btn btn-success" style="margin-bottom: 10px;">Check Status Pendaftaran</a>
             </center>
         </div>
