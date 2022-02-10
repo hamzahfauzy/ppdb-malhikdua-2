@@ -11,6 +11,7 @@ use App\Models\Fonnte;
 use App\Models\Tripay;
 use App\Models\Contact;
 use App\Models\DataIbu;
+use App\Models\WaBlast;
 use App\Models\DataAyah;
 use App\Models\DataDiri;
 use App\Models\DataWali;
@@ -275,8 +276,10 @@ class HomeController extends Controller
                         $message .= "\nTerima Kasih";
                         $message .= "\n\nCek Status PPDB anda di ".route('check');
 
-                        $wa = new Fonnte;
-                        $wa->send_text("62".$contact->no_wa,$message);
+                        WaBlast::send("+62".$contact->no_wa,$message);
+                        
+                        // $wa = new Fonnte;
+                        // $wa->send_text("62".$contact->no_wa,$message);
 
                         // if($request->payment_gateway == 'tripay')
                         session()->forget('otp');
@@ -300,12 +303,14 @@ class HomeController extends Controller
                     ]);
                     $message = "Kode OTP Anda adalah ".$kode;
 
-                    $wa = new Fonnte;
-                    $wa->send_text("62".$request->no_wa,$message);
+                    WaBlast::send("+62".$request->no_wa,$message);
+                    // $wa = new Fonnte;
+                    // $wa->send_text("62".$request->no_wa,$message);
                     session([
                         'otp' => $otp,
                         'request' => $request->input()
                     ]);
+
                     return redirect()->back();
                 } else {
                     // OTP verification
@@ -585,7 +590,7 @@ class HomeController extends Controller
         $formulir->update([
             'status' => 'Dikirim'
         ]);
-        $wa = new Fonnte;
+        // $wa = new Fonnte;
         $message = "Selamat, Pendaftar atas nama";
         $message .= "\nNama : ".$formulir->diri->nama_lengkap;
         $message .= "\nKota : ".$formulir->asal->kabupaten;
@@ -593,7 +598,8 @@ class HomeController extends Controller
         $message .= "\nSpesifikasi : ".$formulir->rencana->spesifikasi;
         $message .= "\n\nFormulir anda berhasil dikirim";
         $message .= "\n\nSilahkan check status pendaftaran pada ".route('check')." dengan kode formulir ".$formulir->kode_formulir;
-        $wa->send_text("62".$formulir->contact->no_wa,$message);
+        // $wa->send_text("62".$formulir->contact->no_wa,$message);
+        WaBlast::send("+62".$formulir->contact->no_wa,$message);
         return redirect('/home')->with(['success'=>'Formulir sudah di kirim']);
     }
 
