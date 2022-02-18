@@ -301,11 +301,11 @@
             }
 
             if (el.value == "Ya" || domisili.val() == "Warga Benda") {
-                biaya.val("95000")
-                bp.html("Rp95.000")
+                biaya.val("130000")
+                bp.html("Rp130.000")
             } else {
-                biaya.val("125000")
-                bp.html("Rp125.000")
+                biaya.val("155000")
+                bp.html("Rp155.000")
             }
         }
 
@@ -317,11 +317,11 @@
             var alumni = $("input[name='alumni']")
 
             if (el.value == "Warga Benda" || alumni.val() == "Ya") {
-                biaya.val("110000")
-                bp.html("Rp110.000")
+                biaya.val("130000")
+                bp.html("Rp130.000")
             } else {
-                biaya.val("135000")
-                bp.html("Rp135.000")
+                biaya.val("155000")
+                bp.html("Rp155.000")
             }
 
             alamat.removeClass("d-none")
