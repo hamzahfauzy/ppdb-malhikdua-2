@@ -1,6 +1,5 @@
 <div class="form-group">
     <label for="">Program</label>
-    {{--
     <div class="form-check">
         <input class="form-check-input" type="radio" name="rencana[program]" id="Keagamaan" value="Keagamaan">
         <label class="form-check-label" for="Keagamaan">
@@ -13,21 +12,18 @@
             Olimpiade (IPA Unggulan)
         </label>
     </div>
-    --}}
     <div class="form-check">
         <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ips" value="Olimpiade (IPS Unggulan)">
         <label class="form-check-label" for="olimpiade-ips">
             Olimpiade (IPS Unggulan)
         </label>
     </div>
-    {{--
     <div class="form-check">
         <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)">
         <label class="form-check-label" for="vokasi-ipa">
             Vokasi (IPA Regular)
         </label>
     </div>
-    --}}
     <div class="form-check">
         <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ips" value="Vokasi (IPS Regular)">
         <label class="form-check-label" for="vokasi-ips">
