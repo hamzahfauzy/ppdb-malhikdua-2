@@ -422,6 +422,27 @@ class SiswaController extends Controller
                     $kk = $request->file("upload_kartu_pemerintah")->store("berkas");
                     $berkas->update(['upload_kartu_pemerintah' => $kk]);
                 }
+                
+                if($request->file("upload_vaksin")){
+                    $vaksin = $request->file("upload_vaksin")->store("berkas");
+                    $berkas->update(['upload_vaksin' => $vaksin]);
+                }
+
+                if($request->file("upload_kip")){
+                    $kip = $request->file("upload_kip")->store("berkas");
+                    $berkas->update(['upload_kip' => $kip]);
+                }
+                
+                if($request->file("upload_kks")){
+                    $kks = $request->file("upload_kks")->store("berkas");
+                    $berkas->update(['upload_kks' => $kks]);
+                }
+                
+                if($request->file("upload_pkh")){
+                    $pkh = $request->file("upload_pkh")->store("berkas");
+                    $berkas->update(['upload_pkh' => $pkh]);
+                }
+
                 DB::commit();
                 return redirect('/staff/siswa/'.$formulir->id)->with(['success'=>'Berhasil edit pendaftaran']);
             }

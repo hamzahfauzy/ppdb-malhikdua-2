@@ -424,6 +424,26 @@ class HomeController extends Controller
                             $kk = $request->file("upload_kartu_pemerintah")->store("berkas");
                             $berkas->update(['upload_kartu_pemerintah' => $kk]);
                         }
+
+                        if($request->file("upload_vaksin")){
+                            $vaksin = $request->file("upload_vaksin")->store("berkas");
+                            $berkas->update(['upload_vaksin' => $vaksin]);
+                        }
+
+                        if($request->file("upload_kip")){
+                            $kip = $request->file("upload_kip")->store("berkas");
+                            $berkas->update(['upload_kip' => $kip]);
+                        }
+                        
+                        if($request->file("upload_kks")){
+                            $kks = $request->file("upload_kks")->store("berkas");
+                            $berkas->update(['upload_kks' => $kks]);
+                        }
+                        
+                        if($request->file("upload_pkh")){
+                            $pkh = $request->file("upload_pkh")->store("berkas");
+                            $berkas->update(['upload_pkh' => $pkh]);
+                        }
                         DB::commit();
                     }
                 } catch (\Exception $e) {
@@ -477,6 +497,23 @@ class HomeController extends Controller
                             $kartu_pemerintah = "";
                             if($kartu_pemerintah = $request->file("upload_kartu_pemerintah"))
                                 $kartu_pemerintah = $request->file("upload_kartu_pemerintah")->store("berkas");
+
+                            $vaksin = "";
+                            if($request->file("upload_vaksin"))
+                                $vaksin = $request->file("upload_vaksin")->store("berkas");
+
+                            $kip = "";
+                            if($request->file("upload_kip"))
+                                $kip = $request->file("upload_kip")->store("berkas");
+
+                            $kks = "";
+                            if($request->file("upload_kks"))
+                                $kks = $request->file("upload_kks")->store("berkas");
+
+                            $pkh = "";
+                            if($request->file("upload_pkh"))
+                                $pkh = $request->file("upload_pkh")->store("berkas");
+
                             if ($kk && $akte) {
     
                                 $berkas = new BerkasPendaftaran();
@@ -488,6 +525,10 @@ class HomeController extends Controller
                                     'upload_ijazah' => $ijazah,
                                     'upload_shun' => $shun,
                                     'upload_kartu_pemerintah' => $kartu_pemerintah,
+                                    'upload_vaksin' => $vaksin,
+                                    'upload_kip' => $kip,
+                                    'upload_kks' => $kks,
+                                    'upload_pkh' => $pkh,
                                 ]))) {
                                     DB::commit();
                                     // $wa = new Fonnte;
