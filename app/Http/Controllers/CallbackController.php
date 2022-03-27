@@ -6,6 +6,7 @@ use App\Models\Duitku;
 use App\Models\Fonnte;
 use App\Models\Tripay;
 use App\Models\Contact;
+use App\Models\WaBlast;
 use Illuminate\Http\Request;
 
 class CallbackController extends Controller
@@ -29,15 +30,13 @@ class CallbackController extends Controller
         else
             $tiket = $contact->tiket;
 
-        $wa = new Fonnte;
         $message = "Terima kasih $contact->nama_pendaftar ($contact->alamat) telah melakukan pembayaran PPDB Malhikdua melalui $contact->tipe_pembayaran";
         $message .= "\nBerikut adalah tiket pengisian formulir anda : $tiket";
         $message .= "\nGunakan tiket ini untuk mengisi/mengedit formulir PPDB hingga lengkap.";
         $message .= "\nFormulir PPDB di ".route('login')." (ONLINE)";
         $message .= "\nManfaatkan tombol SAVE untuk menyimpan isian formulir.";
         $message .= "\nJika sudah, klik tombol VERIFIKASI BERKAS/PENDAFTARAN untuk diperiksa petugas.";
-        $wa->send_text("62".$contact->no_wa,$message);
-
+        WaBlast::send("+62".$contact->no_wa,$message);
         return $tiket;
     }
     //
