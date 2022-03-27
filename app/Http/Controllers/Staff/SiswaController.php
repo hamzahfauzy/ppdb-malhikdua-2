@@ -301,8 +301,12 @@ class SiswaController extends Controller
                     $ibu->create(array_merge(['formulir_id' => $nf->id], $request->post('ibu'))) &&
                     $wali->create(array_merge(['formulir_id' => $nf->id], $request->post('wali')))
                 ) {
-                    $kk = $request->file("upload_kk")->store("berkas");
-                    $akte = $request->file("upload_akte")->store("berkas");
+                    $kk = "";
+                    $akte = "";
+                    if($request->file('upload_kk'))
+                        $kk = $request->file("upload_kk")->store("berkas");
+                    if($request->file('upload_akte'))
+                        $kk = $request->file("upload_akte")->store("berkas");
 
                     $ijazah = "";
                     if($request->file("upload_ijazah"))
