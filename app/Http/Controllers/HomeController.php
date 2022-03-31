@@ -406,23 +406,23 @@ class HomeController extends Controller
                         }
                         if($request->file('upload_akte'))
                         {
-                            $kk = $request->file("upload_akte")->store("berkas");
-                            $berkas->update(['upload_akte' => $kk]);
+                            $akte = $request->file("upload_akte")->store("berkas");
+                            $berkas->update(['upload_akte' => $akte]);
                         }
                         if($request->file('upload_ijazah'))
                         {
-                            $kk = $request->file("upload_ijazah")->store("berkas");
-                            $berkas->update(['upload_ijazah' => $kk]);
+                            $ijazah = $request->file("upload_ijazah")->store("berkas");
+                            $berkas->update(['upload_ijazah' => $ijazah]);
                         }
                         if($request->file('upload_shun'))
                         {
-                            $kk = $request->file("upload_shun")->store("berkas");
-                            $berkas->update(['upload_shun' => $kk]);
+                            $shun = $request->file("upload_shun")->store("berkas");
+                            $berkas->update(['upload_shun' => $shun]);
                         }
                         if($request->file('upload_kartu_pemerintah'))
                         {
-                            $kk = $request->file("upload_kartu_pemerintah")->store("berkas");
-                            $berkas->update(['upload_kartu_pemerintah' => $kk]);
+                            $kartu_pemerintah = $request->file("upload_kartu_pemerintah")->store("berkas");
+                            $berkas->update(['upload_kartu_pemerintah' => $kartu_pemerintah]);
                         }
 
                         if($request->file("upload_vaksin")){
@@ -491,7 +491,7 @@ class HomeController extends Controller
                             if($request->file('upload_kk'))
                                 $kk = $request->file("upload_kk")->store("berkas");
                             if($request->file('upload_akte'))
-                                $kk = $request->file("upload_akte")->store("berkas");
+                                $akte = $request->file("upload_akte")->store("berkas");
                             $ijazah = "";
                             if($request->file('upload_ijazah'))
                                 $ijazah = $request->file("upload_ijazah")->store("berkas");
