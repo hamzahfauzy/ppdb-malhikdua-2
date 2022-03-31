@@ -306,7 +306,7 @@ class SiswaController extends Controller
                     if($request->file('upload_kk'))
                         $kk = $request->file("upload_kk")->store("berkas");
                     if($request->file('upload_akte'))
-                        $kk = $request->file("upload_akte")->store("berkas");
+                        $akte = $request->file("upload_akte")->store("berkas");
 
                     $ijazah = "";
                     if($request->file("upload_ijazah"))
