@@ -371,6 +371,18 @@ class HomeController extends Controller
             $contact->no_wa = $request->no_wa;
             if($contact->formulir)
             {
+                // file validation
+                $request->validate([
+                    'upload_kk' => 'nullable|image|max:5024',
+                    'upload_akte' => 'nullable|image|max:5024',
+                    'upload_izajah' => 'nullable|image|max:5024',
+                    'upload_shun' => 'nullable|image|max:5024',
+                    'upload_kartu_pemerintah' => 'nullable|max:1024',
+                    'upload_vaksin' => 'nullable|max:1024',
+                    'upload_kip' => 'nullable|max:1024',
+                    'upload_kks' => 'nullable|max:1024',
+                    'upload_pkh' => 'nullable|max:1024',
+                ]);
                 DB::beginTransaction();
                 try {
                     $contact->update(['no_wa'=>$request->no_wa]);
@@ -452,6 +464,18 @@ class HomeController extends Controller
             }
             else
             {
+                // file validation
+                $request->validate([
+                    'upload_kk' => 'required|image|max:5024',
+                    'upload_akte' => 'required|image|max:5024',
+                    'upload_izajah' => 'nullable|image|max:5024',
+                    'upload_shun' => 'nullable|image|max:5024',
+                    'upload_kartu_pemerintah' => 'nullable|max:1024',
+                    'upload_vaksin' => 'nullable|max:1024',
+                    'upload_kip' => 'nullable|max:1024',
+                    'upload_kks' => 'nullable|max:1024',
+                    'upload_pkh' => 'nullable|max:1024',
+                ]);
                 DB::beginTransaction();
                 try {
                     $formulir = new Formulir();
