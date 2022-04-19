@@ -154,6 +154,15 @@
                             </a>
                         </li>
                         
+                        <li class="nav-item">
+                            <a href="{{route('staff.siswa.daftar-ulang')}}" class="nav-link {{Request::is('staff/siswa/daftar-ulang') ? 'active' : ''}}">
+                                <i class="nav-icon fas fa-circle"></i>
+                                <p>
+                                    Pendaftaran Ulang
+                                </p>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

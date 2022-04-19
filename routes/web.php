@@ -44,7 +44,10 @@ Route::middleware(['auth:staff'])->prefix('staff')->name('staff.')->group(functi
     
     Route::get('siswa/kelulusan',[App\Http\Controllers\Staff\SiswaController::class,'kelulusan'])->name('siswa.kelulusan');
     Route::get('siswa/report',[App\Http\Controllers\Staff\SiswaController::class,'report'])->name('siswa.report');
+    Route::get('siswa/daftar-ulang',[App\Http\Controllers\Staff\SiswaController::class,'daftarUlang'])->name('siswa.daftar-ulang');
     Route::resource('siswa', App\Http\Controllers\Staff\SiswaController::class);
+    Route::post('siswa/daftar-ulang/{formulir}',[App\Http\Controllers\Staff\SiswaController::class,'submitDaftarUlang'])->name('siswa.daftar-ulang.post');
+    Route::post('siswa/daftar-ulang/verify/{daftarUlang}',[App\Http\Controllers\Staff\SiswaController::class,'verifyDaftarUlang'])->name('siswa.daftar-ulang.verify');
     Route::get('siswa/delete/{formulir}',[App\Http\Controllers\Staff\SiswaController::class,'delete'])->name('siswa.delete');
     Route::get('siswa/approve/{formulir}',[App\Http\Controllers\Staff\SiswaController::class,'approve'])->name('siswa.approve');
     Route::get('siswa/decline/{formulir}',[App\Http\Controllers\Staff\SiswaController::class,'decline'])->name('siswa.decline');
@@ -62,6 +65,7 @@ Route::middleware(['auth'])->group(function(){
     // Route::get('pernyataan', [App\Http\Controllers\HomeController::class, 'pernyataan'])->name('pernyataan');
     Route::get('isian', [App\Http\Controllers\HomeController::class, 'isian'])->name('isian');
     Route::get('berkas', [App\Http\Controllers\HomeController::class, 'berkas'])->name('berkas');
+    Route::match(['get','post'],'daftar-ulang', [App\Http\Controllers\HomeController::class, 'daftarUlang'])->name('daftar-ulang');
     Route::get('download/{row}', [App\Http\Controllers\HomeController::class, 'download'])->name('download');
 });
 

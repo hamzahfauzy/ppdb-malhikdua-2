@@ -11,6 +11,10 @@ class Formulir extends Model
 
     protected $guarded = [];
 
+    function daftarUlang(){
+        return $this->hasMany(DaftarUlang::class);
+    }
+
     function getNomorAttribute()
     {
         $kode = "";

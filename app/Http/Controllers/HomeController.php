@@ -358,6 +358,26 @@ class HomeController extends Controller
         return view('tiket');
     }
 
+    public function daftarUlang(Request $request)
+    {
+        $labels = [
+            '' => '',
+            'Sudah Terkonfirmasi' => 'success',
+            'Menunggu Konfirmasi' => 'warning',
+        ];
+
+        $formulir = auth()->user()->contact->formulir;
+        if ($request->isMethod('post')) {
+            $formulir->daftarUlang()->create([
+                'jenis_pembayaran'=>$request->jenis_pembayaran,
+                'metode_pembayaran'=>$request->metode_pembayaran,
+                'status'=>'Menunggu Konfirmasi',
+            ]);
+        }
+
+        return view('daftar-ulang',compact('formulir','labels'));
+    }
+
     public function formulir(Request $request)
     {
         $contact = auth()->user()->contact;

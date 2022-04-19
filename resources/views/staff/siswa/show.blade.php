@@ -23,6 +23,82 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        @if($formulir->status == "Lulus")
+
+            <div class="card card-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Jenis Pembayaran</th>
+                            <th>Metode Pembayaran</th>
+                            <th>Status</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1 ?>
+                        @forelse($formulir->daftarUlang as $daftarUlang)
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$daftarUlang->jenis_pembayaran}}</td>
+                            <td>{{$daftarUlang->metode_pembayaran}}</td>
+                            <td><span class="badge badge-{{$labels[$daftarUlang->status]}}">{{$daftarUlang->status}}</span></td>
+                            <td>{{$daftarUlang->created_at}}</td>
+                            <td>
+                                @if($daftarUlang->status == "Menunggu Konfirmasi")
+                                <form action="{{route('staff.siswa.daftar-ulang.verify',$daftarUlang)}}" method="post">
+                                    @csrf
+                                    <button class="btn btn-success">Konfirmasi</button>
+                                </form>
+                                @endif
+                            </td>
+                        </tr>
+                        <?php $i++ ?>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">Tidak ada data!</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="{{route('staff.siswa.daftar-ulang.post',$formulir)}}">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="">Jenis Pembayaran</label>
+                            <select name="jenis_pembayaran" class="form-control">
+                                <option value="-" selected disabled>- Pilih Jenis Pembayaran -</option>
+                                <option value="Lunas">Lunas</option>
+                                <option value="25%">25%</option>
+                                <option value="50%">50%</option>
+                                <option value="75%">75%</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Metode Pembayaran</label>
+                            <select name="metode_pembayaran" class="form-control">
+                                <option value="-" selected disabled>- Pilih Metode Pembayaran -</option>
+                                <option value="Cash">Cash</option>
+                                <option value="Transfer">Transfer</option>
+                            </select>
+                        </div>
+
+                        <hr>
+
+                        <button class="btn btn-success">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        @endif
+
         <div class="card">
             <div class="card-body">
                 @if($formulir->status == "Dikirim")

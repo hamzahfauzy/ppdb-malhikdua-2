@@ -132,6 +132,16 @@
                                 </p>
                             </a>
                         </li>
+                        @if(auth()->user()->contact->formulir->status == "Lulus")
+                        <li class="nav-item">
+                            <a href="{{route('daftar-ulang')}}" class="nav-link {{Request::is('daftar-ulang') ? 'active' : ''}}">
+                                <i class="nav-icon fas fa-file"></i>
+                                <p>
+                                    Daftar Ulang
+                                </p>
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

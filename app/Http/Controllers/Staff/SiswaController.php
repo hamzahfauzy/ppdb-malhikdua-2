@@ -11,6 +11,7 @@ use App\Models\DataDiri;
 use App\Models\DataWali;
 use App\Models\Formulir;
 use App\Models\AlamatAsal;
+use App\Models\DaftarUlang;
 use Illuminate\Http\Request;
 use App\Models\DataPendidikan;
 use App\Models\BerkasPendaftaran;
@@ -31,6 +32,7 @@ class SiswaController extends Controller
             'Diterima' => 'success',
             'Lulus' => 'success',
             'Tidak Lulus' => 'danger',
+            'Daftar Ulang' => 'warning',
         ];
         $siswa = Formulir::where('status','<>','')->get();
         return view('staff.siswa.index', compact('siswa','labels'));
@@ -173,6 +175,36 @@ class SiswaController extends Controller
     public function create()
     {
         return view('staff.siswa.create');
+    }
+
+    public function daftarUlang()
+    {
+        $labels = [
+            '' => '',
+            'Sudah Terkonfirmasi' => 'success',
+            'Menunggu Konfirmasi' => 'warning',
+        ];
+
+        $daftarUlangs = DaftarUlang::get();
+        return view('staff.siswa.pendaftaran-ulang', compact('daftarUlangs','labels'));
+    }
+
+    public function submitDaftarUlang(Request $request, Formulir $formulir){
+        $formulir->daftarUlang()->create([
+            'jenis_pembayaran'=>$request->jenis_pembayaran,
+            'metode_pembayaran'=>$request->metode_pembayaran,
+            'status'=>'Sudah Terkonfirmasi',
+        ]);
+
+        return redirect()->back()->with(['success'=>'Berhasil Membuat Daftar Ulang']);
+    }
+
+    public function verifyDaftarUlang(Request $request, DaftarUlang $daftarUlang){
+        $daftarUlang->update([
+            'status'=>'Sudah Terkonfirmasi',
+        ]);
+
+        return redirect()->back()->with(['success'=>'Daftar Ulang Telah dikonfirmasi']);
     }
 
     public function edit($id)
@@ -469,8 +501,12 @@ class SiswaController extends Controller
 
     function show($id)
     {
+        $labels = [
+            'Sudah Terkonfirmasi' => 'success',
+            'Menunggu Konfirmasi' => 'warning',
+        ];
         $formulir = Formulir::findOrFail($id);
-        return view('staff.siswa.show', compact('formulir'));
+        return view('staff.siswa.show', compact('formulir','labels'));
     }
 
     function updateFormulir($formulir, $status)
