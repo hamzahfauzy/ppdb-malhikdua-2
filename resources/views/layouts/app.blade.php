@@ -132,7 +132,7 @@
                                 </p>
                             </a>
                         </li>
-                        @if(auth()->user()->contact->formulir->status == "Lulus")
+                        @if(auth()->user() && auth()->user()->contact && auth()->user()->contact->formulir &&  auth()->user()->contact->formulir->status == "Lulus")
                         <li class="nav-item">
                             <a href="{{route('daftar-ulang')}}" class="nav-link {{Request::is('daftar-ulang') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-file"></i>
