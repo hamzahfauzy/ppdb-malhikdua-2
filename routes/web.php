@@ -18,6 +18,11 @@ Route::get('generate', function (){
     echo 'ok';
 });
 
+Route::get('wa-test',function(){
+    $wa = new App\Models\Fonnte;
+    $wa->send_text("6282369378823",'Test Pesan');
+});
+
 // Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);

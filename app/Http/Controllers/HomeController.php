@@ -276,10 +276,10 @@ class HomeController extends Controller
                         $message .= "\nTerima Kasih";
                         $message .= "\n\nCek Status PPDB anda di ".route('check');
 
-                        WaBlast::send("+62".$contact->no_wa,$message);
+                        // WaBlast::send("+62".$contact->no_wa,$message);
                         
-                        // $wa = new Fonnte;
-                        // $wa->send_text("62".$contact->no_wa,$message);
+                        $wa = new Fonnte;
+                        $wa->send_text("62".$contact->no_wa,$message);
 
                         // if($request->payment_gateway == 'tripay')
                         session()->forget('otp');
@@ -303,9 +303,9 @@ class HomeController extends Controller
                     ]);
                     $message = "Kode OTP Anda adalah ".$kode;
 
-                    WaBlast::send("+62".$request->no_wa,$message);
-                    // $wa = new Fonnte;
-                    // $wa->send_text("62".$request->no_wa,$message);
+                    // WaBlast::send("+62".$request->no_wa,$message);
+                    $wa = new Fonnte;
+                    $wa->send_text("62".$request->no_wa,$message);
                     session([
                         'otp' => $otp,
                         'request' => $request->input()

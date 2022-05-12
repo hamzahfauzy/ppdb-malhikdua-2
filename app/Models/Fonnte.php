@@ -5,8 +5,8 @@ namespace App\Models;
 class Fonnte
 {
 
-    private $send_url = 'https://fonnte.com/api/send_message.php';
-    private $check_status = 'https://fonnte.com/api/status.php';
+    private $send_url = 'https://md.fonnte.com/api/send_message.php';
+    private $check_status = 'https://md.fonnte.com/api/status.php';
 
     public function send_text($phone,$message)
     {
