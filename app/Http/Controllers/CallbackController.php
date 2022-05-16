@@ -36,7 +36,9 @@ class CallbackController extends Controller
         $message .= "\nFormulir PPDB di ".route('login')." (ONLINE)";
         $message .= "\nManfaatkan tombol SAVE untuk menyimpan isian formulir.";
         $message .= "\nJika sudah, klik tombol VERIFIKASI BERKAS/PENDAFTARAN untuk diperiksa petugas.";
-        WaBlast::send("+62".$contact->no_wa,$message);
+        // WaBlast::send("+62".$contact->no_wa,$message);
+        $wa = new Fonnte;
+        $wa->send_text("+62".$contact->no_wa,$message);
         return $tiket;
     }
     //

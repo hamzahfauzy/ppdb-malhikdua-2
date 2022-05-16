@@ -679,7 +679,7 @@ class HomeController extends Controller
         $formulir->update([
             'status' => 'Dikirim'
         ]);
-        // $wa = new Fonnte;
+        $wa = new Fonnte;
         $message = "Selamat, Pendaftar atas nama";
         $message .= "\nNama : ".$formulir->diri->nama_lengkap;
         $message .= "\nKota : ".$formulir->asal->kabupaten;
@@ -687,8 +687,8 @@ class HomeController extends Controller
         $message .= "\nSpesifikasi : ".$formulir->rencana->spesifikasi;
         $message .= "\n\nFormulir anda berhasil dikirim";
         $message .= "\n\nSilahkan check status pendaftaran pada ".route('check')." dengan kode formulir ".$formulir->kode_formulir;
-        // $wa->send_text("62".$formulir->contact->no_wa,$message);
-        WaBlast::send("+62".$formulir->contact->no_wa,$message);
+        $wa->send_text("62".$formulir->contact->no_wa,$message);
+        // WaBlast::send("+62".$formulir->contact->no_wa,$message);
         return redirect('/home')->with(['success'=>'Formulir sudah di kirim']);
     }
 
