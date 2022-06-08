@@ -38,7 +38,7 @@ class CallbackController extends Controller
         $message .= "\nJika sudah, klik tombol VERIFIKASI BERKAS/PENDAFTARAN untuk diperiksa petugas.";
         // WaBlast::send("+62".$contact->no_wa,$message);
         $wa = new Fonnte;
-        $wa->send_text("+62".$contact->no_wa,$message);
+        $wa->send_text("62".$contact->no_wa,$message);
         return $tiket;
     }
     //
