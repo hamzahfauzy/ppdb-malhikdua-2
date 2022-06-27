@@ -1,7 +1,7 @@
 <div class="form-group">
     <label for="">Program</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="Keagamaan" value="Keagamaan">
+        <input class="form-check-input" type="radio" name="rencana[program]" id="Keagamaan" value="Keagamaan" disabled>
         <label class="form-check-label" for="Keagamaan">
             Keagamaan
         </label>
