@@ -7,7 +7,7 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ipa" value="Olimpiade (IPA Unggulan)">
+        <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ipa" value="Olimpiade (IPA Unggulan)" disabled>
         <label class="form-check-label" for="olimpiade-ipa">
             Olimpiade (IPA Unggulan)
         </label>
@@ -19,7 +19,7 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)">
+        <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)" disabled>
         <label class="form-check-label" for="vokasi-ipa">
             Vokasi (IPA Regular)
         </label>
