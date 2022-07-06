@@ -13,7 +13,7 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ips" value="Olimpiade (IPS Unggulan)" disabled>
+        <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ips" value="Olimpiade (IPS Unggulan)">
         <label class="form-check-label" for="olimpiade-ips">
             Olimpiade (IPS Unggulan)
         </label>

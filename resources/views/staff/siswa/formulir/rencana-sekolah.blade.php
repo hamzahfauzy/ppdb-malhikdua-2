@@ -19,7 +19,7 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)" disabled>
+        <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)">
         <label class="form-check-label" for="vokasi-ipa">
             Vokasi (IPA Regular)
         </label>
