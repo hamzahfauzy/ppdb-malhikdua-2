@@ -7,6 +7,14 @@
     <input type="file" class="form-control" style="height:auto;" name="upload_akte" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
 </div>
 <div class="form-group">
+    <label for="">Upload KTP Ayah / Wali (PDF/JPG/PNG Max 5MB)</label>
+    <input type="file" class="form-control" style="height:auto;" name="upload_ktp_ayah" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+</div>
+<div class="form-group">
+    <label for="">Upload KTP Ibu / Wali (PDF/JPG/PNG Max 5MB)</label>
+    <input type="file" class="form-control" style="height:auto;" name="upload_ktp_ibu" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+</div>
+<div class="form-group">
     <label for="">No Seri Ijazah</label>
     <input type="text" name="berkas[no_seri_ijazah]" class="form-control">
 </div>
@@ -38,6 +46,7 @@
     <label for="">Upload Kartu Pemerintah</label>
     <input type="file" class="form-control" style="height:auto;" name="upload_kartu_pemerintah" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
 </div>
+{{--
 <div class="form-group">
     <label for="">VAKSIN</label>
     <select name="berkas[vaksin]" class="form-control">
@@ -50,6 +59,7 @@
     <label for="">Upload Vaksin</label>
     <input type="file" class="form-control" style="height: auto" name="upload_vaksin">
 </div>
+--}}
 
 <div class="form-group">
     <label for="">Nomor KIP (jika punya)</label>

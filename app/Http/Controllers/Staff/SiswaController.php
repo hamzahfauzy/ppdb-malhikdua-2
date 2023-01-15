@@ -459,9 +459,14 @@ class SiswaController extends Controller
                     $berkas->update(['upload_kartu_pemerintah' => $kartu_pemerintah]);
                 }
                 
-                if($request->file("upload_vaksin")){
-                    $vaksin = $request->file("upload_vaksin")->store("berkas");
-                    $berkas->update(['upload_vaksin' => $vaksin]);
+                if($request->file("upload_ktp_ayah")){
+                    $ktp_ayah = $request->file("upload_ktp_ayah")->store("berkas");
+                    $berkas->update(['upload_ktp_ayah' => $ktp_ayah]);
+                }
+
+                if($request->file("upload_ktp_ibu")){
+                    $ktp_ibu = $request->file("upload_ktp_ibu")->store("berkas");
+                    $berkas->update(['upload_ktp_ibu' => $ktp_ibu]);
                 }
 
                 if($request->file("upload_kip")){

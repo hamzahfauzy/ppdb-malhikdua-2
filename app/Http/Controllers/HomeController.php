@@ -398,7 +398,8 @@ class HomeController extends Controller
                     'upload_izajah' => 'nullable|image|max:5024',
                     'upload_shun' => 'nullable|image|max:5024',
                     'upload_kartu_pemerintah' => 'nullable|max:1024',
-                    'upload_vaksin' => 'nullable|max:1024',
+                    'upload_ktp_ayah' => 'nullable|max:1024',
+                    'upload_ktp_ibu' => 'nullable|max:1024',
                     'upload_kip' => 'nullable|max:1024',
                     'upload_kks' => 'nullable|max:1024',
                     'upload_pkh' => 'nullable|max:1024',
@@ -457,9 +458,14 @@ class HomeController extends Controller
                             $berkas->update(['upload_kartu_pemerintah' => $kartu_pemerintah]);
                         }
 
-                        if($request->file("upload_vaksin")){
-                            $vaksin = $request->file("upload_vaksin")->store("berkas");
-                            $berkas->update(['upload_vaksin' => $vaksin]);
+                        if($request->file("upload_ktp_ayah")){
+                            $ktp_ayah = $request->file("upload_ktp_ayah")->store("berkas");
+                            $berkas->update(['upload_ktp_ayah' => $ktp_ayah]);
+                        }
+                        
+                        if($request->file("upload_ktp_ibu")){
+                            $ktp_ibu = $request->file("upload_ktp_ibu")->store("berkas");
+                            $berkas->update(['upload_ktp_ibu' => $ktp_ibu]);
                         }
 
                         if($request->file("upload_kip")){
@@ -491,7 +497,8 @@ class HomeController extends Controller
                     'upload_izajah' => 'nullable|image|max:5024',
                     'upload_shun' => 'nullable|image|max:5024',
                     'upload_kartu_pemerintah' => 'nullable|max:1024',
-                    'upload_vaksin' => 'nullable|max:1024',
+                    'upload_ktp_ayah' => 'nullable|max:1024',
+                    'upload_ktp_ibu' => 'nullable|max:1024',
                     'upload_kip' => 'nullable|max:1024',
                     'upload_kks' => 'nullable|max:1024',
                     'upload_pkh' => 'nullable|max:1024',
@@ -546,9 +553,13 @@ class HomeController extends Controller
                             if($kartu_pemerintah = $request->file("upload_kartu_pemerintah"))
                                 $kartu_pemerintah = $request->file("upload_kartu_pemerintah")->store("berkas");
 
-                            $vaksin = "";
-                            if($request->file("upload_vaksin"))
-                                $vaksin = $request->file("upload_vaksin")->store("berkas");
+                            $ktp_ayah = "";
+                            if($request->file("upload_ktp_ayah"))
+                                $ktp_ayah = $request->file("upload_ktp_ayah")->store("berkas");
+                            
+                            $ktp_ibu = "";
+                            if($request->file("upload_ktp_ibu"))
+                                $ktp_ibu = $request->file("upload_ktp_ibu")->store("berkas");
 
                             $kip = "";
                             if($request->file("upload_kip"))
@@ -573,7 +584,8 @@ class HomeController extends Controller
                                     'upload_ijazah' => $ijazah,
                                     'upload_shun' => $shun,
                                     'upload_kartu_pemerintah' => $kartu_pemerintah,
-                                    'upload_vaksin' => $vaksin,
+                                    'upload_ktp_ayah' => $ktp_ayah,
+                                    'upload_ktp_ibu' => $ktp_ibu,
                                     'upload_kip' => $kip,
                                     'upload_kks' => $kks,
                                     'upload_pkh' => $pkh,
