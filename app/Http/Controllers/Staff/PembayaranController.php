@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Staff;
 
 use App\Models\User;
 use App\Models\Duitku;
-use App\Models\Fonnte;
+use App\Models\WaBlast;
 use App\Models\Tripay;
 use App\Models\Contact;
-use App\Models\WaBlast;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -131,7 +130,7 @@ class PembayaranController extends Controller
                 $message .= "\nManfaatkan tombol SAVE untuk menyimpan isian formulir.";
                 $message .= "\nJika sudah, klik tombol VERIFIKASI BERKAS/PENDAFTARAN untuk diperiksa petugas.";
 
-                $wa = new Fonnte;
+                $wa = new WaBlast;
                 $wa->send_text("62".$contact->no_wa,$message);
 
                 // WaBlast::send("+62".$contact->no_wa,$message);
@@ -200,7 +199,7 @@ class PembayaranController extends Controller
             'tiket' => $tiket
         ]);
 
-        $wa = new Fonnte;
+        $wa = new WaBlast;
         $message = "Terima kasih $contact->nama_pendaftar ($contact->alamat) telah melakukan pembayaran PPDB Malhikdua melalui $contact->tipe_pembayaran";
         $message .= "\nBerikut adalah tiket pengisian formulir anda : $tiket";
         $message .= "\nGunakan tiket ini untuk mengisi/mengedit formulir PPDB hingga lengkap.";

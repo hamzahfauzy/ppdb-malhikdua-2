@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Staff;
 
 use App\Models\User;
-use App\Models\Fonnte;
+use App\Models\WaBlast;
 use App\Models\Contact;
 use App\Models\DataIbu;
 use App\Models\DataAyah;
@@ -385,7 +385,7 @@ class SiswaController extends Controller
                             'upload_pkh' => $pkh,
                         ]))) {
                             DB::commit();
-                            // $wa = new Fonnte;
+                            // $wa = new WaBlast;
                             // $wa->send_text("62".$contact->no_wa,$message);
                         }
                     }
@@ -525,7 +525,7 @@ class SiswaController extends Controller
     function approve(Formulir $formulir)
     {
         $this->updateFormulir($formulir, "Diterima");
-        $wa = new Fonnte;
+        $wa = new WaBlast;
         $message = "Selamat, Berkas atas nama";
         $message .= "\nNama : ".$formulir->diri->nama_lengkap;
         $message .= "\nKota : ".$formulir->asal->kabupaten;
@@ -540,7 +540,7 @@ class SiswaController extends Controller
     function decline(Formulir $formulir)
     {
         $this->updateFormulir($formulir, "Ditolak");
-        $wa = new Fonnte;
+        $wa = new WaBlast;
         $message = "Berkas anda kurang lengkap, mohon isi data yang diwajibkan. Klik ".route('login');
         $message .= "\nJika sudah klik tombol VERIFIKASI BERKAS/PENDAFTARAN untuk diperiksa petugas";
         $wa->send_text("62".$formulir->contact->no_wa,$message);
@@ -550,7 +550,7 @@ class SiswaController extends Controller
     function lulus(Formulir $formulir)
     {
         $this->updateFormulir($formulir, "Lulus");
-        $wa = new Fonnte;
+        $wa = new WaBlast;
         $message = "Selamat, Pendaftar atas nama";
         $message .= "\nNama : ".$formulir->diri->nama_lengkap;
         $message .= "\nKota : ".$formulir->asal->kabupaten;

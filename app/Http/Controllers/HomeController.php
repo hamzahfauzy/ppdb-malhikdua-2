@@ -7,11 +7,10 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use App\Models\User;
 use App\Models\Duitku;
-use App\Models\Fonnte;
+use App\Models\WaBlast;
 use App\Models\Tripay;
 use App\Models\Contact;
 use App\Models\DataIbu;
-use App\Models\WaBlast;
 use App\Models\DataAyah;
 use App\Models\DataDiri;
 use App\Models\DataWali;
@@ -278,7 +277,7 @@ class HomeController extends Controller
 
                         // WaBlast::send("+62".$contact->no_wa,$message);
                         
-                        $wa = new Fonnte;
+                        $wa = new WaBlast;
                         $wa->send_text("62".$contact->no_wa,$message);
 
                         // if($request->payment_gateway == 'tripay')
@@ -304,7 +303,7 @@ class HomeController extends Controller
                     $message = "Kode OTP Anda adalah ".$kode;
 
                     // WaBlast::send("+62".$request->no_wa,$message);
-                    $wa = new Fonnte;
+                    $wa = new WaBlast;
                     $wa->send_text("62".$request->no_wa,$message);
                     session([
                         'otp' => $otp,
@@ -591,7 +590,7 @@ class HomeController extends Controller
                                     'upload_pkh' => $pkh,
                                 ]))) {
                                     DB::commit();
-                                    // $wa = new Fonnte;
+                                    // $wa = new WaBlast;
                                     // $wa->send_text("62".$contact->no_wa,$message);
                                 }
                             }
@@ -691,7 +690,7 @@ class HomeController extends Controller
         $formulir->update([
             'status' => 'Dikirim'
         ]);
-        $wa = new Fonnte;
+        $wa = new WaBlast;
         $message = "Selamat, Pendaftar atas nama";
         $message .= "\nNama : ".$formulir->diri->nama_lengkap;
         $message .= "\nKota : ".$formulir->asal->kabupaten;

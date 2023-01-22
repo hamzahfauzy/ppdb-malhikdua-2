@@ -4,6 +4,41 @@ namespace App\Models;
 
 class WaBlast
 {
+
+    public static function send_text($to, $message)
+    {
+        $data = [
+            'api_key' => 'b2d95af932eedb4de92b3496f338aa5f97b36ae0',
+            'sender'  => '6285799200057',
+            'number'  => $to,
+            'message' => $message
+        ];
+        
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://wa.malhikdua.sch.id/app/api/send-message",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => json_encode($data))
+        );
+        
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        // echo $response;
+        if ($err) {
+            // return ['status'=>'error','data'=>"cURL Error #:" . $err];
+            return "cURL Error #:" . $err;
+        } else {
+            return $response;
+        }
+    }
     
     static function send($to, $message, $file_url = '')
     {

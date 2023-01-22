@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Duitku;
-use App\Models\Fonnte;
+use App\Models\WaBlast;
 use App\Models\Tripay;
 use App\Models\Contact;
-use App\Models\WaBlast;
 use Illuminate\Http\Request;
 
 class CallbackController extends Controller
@@ -37,7 +36,7 @@ class CallbackController extends Controller
         $message .= "\nManfaatkan tombol SAVE untuk menyimpan isian formulir.";
         $message .= "\nJika sudah, klik tombol VERIFIKASI BERKAS/PENDAFTARAN untuk diperiksa petugas.";
         // WaBlast::send("+62".$contact->no_wa,$message);
-        $wa = new Fonnte;
+        $wa = new WaBlast;
         $wa->send_text("62".$contact->no_wa,$message);
         return $tiket;
     }

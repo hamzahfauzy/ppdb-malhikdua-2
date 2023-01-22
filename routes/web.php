@@ -19,7 +19,7 @@ Route::get('generate', function (){
 });
 
 Route::get('wa-test',function(){
-    $wa = new App\Models\Fonnte;
+    $wa = new App\Models\WaBlast;
     $wa->send_text("6282369378823",'Test Pesan');
 });
 
