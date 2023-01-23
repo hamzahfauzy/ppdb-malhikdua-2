@@ -258,7 +258,8 @@ class HomeController extends Controller
                     ]);
                 }
 
-                if ($nc = $contact->create($request->post())) {
+                
+                if ($nc = $contact->create(array_merge($request->post(),['biaya_pendaftaran'=>$amount]))) {
                     $user = new User();
 
                     if ($user->create([
