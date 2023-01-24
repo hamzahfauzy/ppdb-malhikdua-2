@@ -1,13 +1,13 @@
 <div class="form-group">
     <label for="">Program</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="Keagamaan" value="Keagamaan" disabled>
+        <input class="form-check-input" type="radio" name="rencana[program]" id="Keagamaan" value="Keagamaan">
         <label class="form-check-label" for="Keagamaan">
             Keagamaan
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ipa" value="Olimpiade (IPA Unggulan)" disabled>
+        <input class="form-check-input" type="radio" name="rencana[program]" id="olimpiade-ipa" value="Olimpiade (IPA Unggulan)">
         <label class="form-check-label" for="olimpiade-ipa">
             Olimpiade (IPA Unggulan)
         </label>
@@ -19,7 +19,7 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)" disabled>
+        <input class="form-check-input" type="radio" name="rencana[program]" id="vokasi-ipa" value="Vokasi (IPA Regular)">
         <label class="form-check-label" for="vokasi-ipa">
             Vokasi (IPA Regular)
         </label>
