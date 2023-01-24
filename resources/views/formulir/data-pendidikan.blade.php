@@ -18,6 +18,7 @@
         <option value="19/20" selected>19/20</option>
         <option value="20/21" selected>20/21</option>
         <option value="21/22" selected>21/22</option>
+        <option value="21/22" selected>22/23</option>
     </select>
 </div>
 <div class="form-group">
