@@ -239,10 +239,6 @@
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <div class="form-group">
-                            <label for="">Nomor KK</label>
-                            <p>{{$formulir->ayah->no_kk}}</p>
-                        </div>
-                        <div class="form-group">
                             <label for="">Nama</label>
                             <p>{{$formulir->ayah->nama}}</p>
                         </div>
@@ -251,8 +247,8 @@
                             <p>{{$formulir->ayah->status}}</p>
                         </div>
                         <div class="form-group">
-                            <label for="">No KK Ayah</label>
-                            <p>{{$formulir->ayah->no_kk}}</p>
+                            <label for="">NIK</label>
+                            <p>{{$formulir->ayah->no_kk_ayah}}</p>
                         </div>
                         <div class="form-group">
                             <label for="">Tanggal Lahir</label>
@@ -284,10 +280,6 @@
                 <h4>Data Ibu</h4>
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <div class="form-group">
-                            <label for="">Nomor KK</label>
-                            <p>{{$formulir->ibu->no_kk}}</p>
-                        </div>
                         <div class="form-group">
                             <label for="">Nama</label>
                             <p>{{$formulir->ibu->nama}}</p>

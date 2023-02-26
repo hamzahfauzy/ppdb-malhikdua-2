@@ -393,16 +393,16 @@ class HomeController extends Controller
             {
                 // file validation
                 $request->validate([
-                    'upload_kk' => 'nullable|image|max:5024',
-                    'upload_akte' => 'nullable|image|max:5024',
-                    'upload_izajah' => 'nullable|image|max:5024',
-                    'upload_shun' => 'nullable|image|max:5024',
-                    'upload_kartu_pemerintah' => 'nullable|max:1024',
-                    'upload_ktp_ayah' => 'nullable|max:1024',
-                    'upload_ktp_ibu' => 'nullable|max:1024',
-                    'upload_kip' => 'nullable|max:1024',
-                    'upload_kks' => 'nullable|max:1024',
-                    'upload_pkh' => 'nullable|max:1024',
+                    'upload_kk' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_akte' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_izajah' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_shun' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_kartu_pemerintah' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_ktp_ayah' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_ktp_ibu' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_kip' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_kks' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
+                    'upload_pkh' => 'nullable|mimes:jpeg,bmp,png,gif,svg,pdf,doc,docx|max:5024',
                 ]);
                 DB::beginTransaction();
                 try {
