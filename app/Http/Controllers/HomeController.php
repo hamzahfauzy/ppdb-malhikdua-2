@@ -417,17 +417,25 @@ class HomeController extends Controller
                     $ayah = $formulir->ayah;
                     $ibu = $formulir->ibu;
                     if($formulir->wali)
+                    {
                         $wali = $formulir->wali;
+                        $wali->update($request->post('wali'));
+                    }
                     else
-                        $wali = (new DataWali)->create(array_merge(['formulir_id' => $formulir->id], $request->post('wali')));
+                    {
+                        if($request->post('wali.nama') && $request->post('wali.NIK'))
+                        {
+                            $wali = (new DataWali)->create(array_merge(['formulir_id' => $formulir->id], $request->post('wali')));
+                            $wali->update($request->post('wali'));
+                        }
+                    }
                     if (
                         $rencana->update($request->post('rencana')) &&
                         $diri->update($request->post('diri')) &&
                         $pendidikan->update($request->post('pendidikan')) &&
                         $asal->update($request->post('asal')) &&
                         $ayah->update($request->post('ayah')) &&
-                        $ibu->update($request->post('ibu')) &&
-                        $wali->update($request->post('wali'))
+                        $ibu->update($request->post('ibu'))
                     ) {
                         $berkas = $formulir->berkas_pendaftaran;
                         $berkas->update($request->post('berkas'));
@@ -526,7 +534,6 @@ class HomeController extends Controller
                         $asal = new AlamatAsal();
                         $ayah = new DataAyah();
                         $ibu = new DataIbu();
-                        $wali = new DataWali();
     
                         if (
                             $rencana->create(array_merge(['formulir_id' => $nf->id], $request->post('rencana'))) &&
@@ -534,9 +541,14 @@ class HomeController extends Controller
                             $pendidikan->create(array_merge(['formulir_id' => $nf->id], $request->post('pendidikan'))) &&
                             $asal->create(array_merge(['formulir_id' => $nf->id], $request->post('asal'))) &&
                             $ayah->create(array_merge(['formulir_id' => $nf->id], $request->post('ayah'))) &&
-                            $ibu->create(array_merge(['formulir_id' => $nf->id], $request->post('ibu'))) &&
-                            $wali->create(array_merge(['formulir_id' => $nf->id], $request->post('wali')))
+                            $ibu->create(array_merge(['formulir_id' => $nf->id], $request->post('ibu')))
                         ) {
+                            if($request->post('wali.nama') && $request->post('wali.NIK'))
+                            {
+                                $wali = new DataWali();
+                                $wali->create(array_merge(['formulir_id' => $nf->id], $request->post('wali')));
+                            }
+
                             $kk = "";
                             $akte = "";
                             if($request->file('upload_kk'))
