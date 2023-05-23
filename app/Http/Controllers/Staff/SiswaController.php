@@ -137,6 +137,7 @@ class SiswaController extends Controller
                 $data[] = preg_replace('~[\r\n]+~', '', $value);
             }
 
+            if($s->wali)
             foreach($s->wali->toArray() as $key => $value)
             {
                 $value = $value == NULL ? 'NULL' : $value;
