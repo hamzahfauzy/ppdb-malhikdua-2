@@ -175,97 +175,29 @@ class HomeController extends Controller
                 
                 $contact = new Contact();
                 $request->merge(['status'=>'']);
-                $amount = $request->domisili == 'Warga Benda' || $request->alumni == 'Ya' ? 130000 : 160000;
+                $amount = 0; // $request->domisili == 'Warga Benda' || $request->alumni == 'Ya' ? 130000 : 160000;
                 // gratis tanggal 12-12-2024
-                if(in_array(date('Y-m-d'), ['2024-12-11','2024-12-12']))
-                {
-                    $amount = 0;
-                }
+                // if(in_array(date('Y-m-d'), ['2024-12-11','2024-12-12']))
+                // {
+                //     $amount = 0;
+                // }
 
                 $additional_message = "";
-                // bayar dulu
-                if($request->payment_gateway == 'tripay')
-                {
-                    $privateKey = getenv('TRIPAY_PRIVATE_KEY');
-                    $merchantCode = getenv('TRIPAY_MERCHANT_CODE');
-                    $merchantRef = getenv('TRIPAY_MERCHANT_REF');
-                    
-                    $signature = hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey);
-                    $data = [
-                        'method'            => $request->tipe_pembayaran,
-                        'merchant_ref'      => $merchantRef,
-                        'amount'            => $amount,
-                        'customer_name'     => $request->nama_pendaftar,
-                        'customer_email'    => $request->email,
-                        'customer_phone'    => $request->no_wa,
-                        'callback_url'      => route('tripay-callback'),
-                        'order_items'       => [
-                            [
-                                'sku'       => 'PPDB',
-                                'name'      => 'PPDB Malhikdua',
-                                'price'     => $amount,
-                                'quantity'  => 1
-                            ]
-                        ],
-                        'signature'         => hash_hmac('sha256', $merchantCode.$merchantRef.$amount, $privateKey)
-                    ];
+                
+                $additional_message = $request->payment_gateway == 'transfer bank' ? '\nNo. Rekening : '.getenv('NO_REKENING')." - ".getenv('NAMA_BANK')."\nA/N ".getenv('NAMA_AKUN'): "";
+                $additional_message .= "\nMohon konfirmasi pembayaran dengan mereplay wa ini. Konfirmasi manual ini hanya berlaku utk pembayaran transfer dan OTS.";
 
-                    $tripay = new Tripay($privateKey, getenv('TRIPAY_API_KEY'));
-                    $response = $tripay->curlAPI($tripay->URL_transMp,$data,'POST');
-                    if($response['success'] == false)
-                        return redirect()->back();
-                    $response_data = $response['data'];
-
-                    $request->merge([
-                        'status' => $response_data['status'],
-                        'tiket' => '',
-                        'payment_gateway' => $request->payment_gateway,
-                        'payment_reference' => $response_data['reference'],
-                        'payment_code' => $response_data['pay_code'],
-                        'checkout_url' => $response_data['checkout_url'],
-                        'expired_time' => $response_data['expired_time'],
-                    ]);
-                }
-                elseif($request->payment_gateway == 'duitku')
-                {
-                    $duitku_pay = new Duitku;
-                    $result = $duitku_pay->pay($amount, $request->tipe_pembayaran, [
-                        'name' => $request->nama_pendaftar,
-                        'email' => $request->email,
-                        'phone' => $request->no_wa
-                    ]);
-
-                    // return $result;
-
-                    $request->merge([
-                        'status' => $result['statusMessage'],
-                        'tiket' => '',
-                        'tipe_pembayaran' => $duitku[$request->tipe_pembayaran],
-                        'payment_gateway' => $request->payment_gateway,
-                        'payment_reference' => $result['reference'],
-                        'payment_code' => $result['merchantOrderId'],
-                        'checkout_url' => $result['paymentUrl'],
-                        'expired_time' => '',
-                    ]);
-
-                }
-                else
-                {
-                    $additional_message = $request->payment_gateway == 'transfer bank' ? '\nNo. Rekening : '.getenv('NO_REKENING')." - ".getenv('NAMA_BANK')."\nA/N ".getenv('NAMA_AKUN'): "";
-                    $additional_message .= "\nMohon konfirmasi pembayaran dengan mereplay wa ini. Konfirmasi manual ini hanya berlaku utk pembayaran transfer dan OTS.";
-
-                    $request->tipe_pembayaran = $request->payment_gateway;
-                    $request->merge([
-                        'status' => '',
-                        'tiket' => '',
-                        'tipe_pembayaran' => $request->tipe_pembayaran,
-                        'payment_gateway' => $request->payment_gateway,
-                        'payment_reference' => '',
-                        'payment_code' => strtotime('now'),
-                        'checkout_url' => route('thankyou'),
-                        'expired_time' => '',
-                    ]);
-                }
+                $request->tipe_pembayaran = $request->payment_gateway;
+                $request->merge([
+                    'status' => '',
+                    'tiket' => '',
+                    'tipe_pembayaran' => $request->tipe_pembayaran,
+                    'payment_gateway' => $request->payment_gateway,
+                    'payment_reference' => '',
+                    'payment_code' => strtotime('now'),
+                    'checkout_url' => route('thankyou'),
+                    'expired_time' => '',
+                ]);
 
                 
                 if ($nc = $contact->create(array_merge($request->post(),['biaya_pembayaran'=>$amount]))) {
@@ -349,9 +281,7 @@ class HomeController extends Controller
             }
         }
 
-        $tripay = $this->paymentChannel();
-
-        return view('welcome',compact('duitku','tripay'));
+        return view('welcome');
     }
 
     public function tiket(Request $request)

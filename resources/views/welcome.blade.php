@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-12 mt-5">
                     <center>
-                        <img src="{{asset('images/faktur.png')}}" alt="" style="max-width: 400px;width:100%;">
+                        <h2>PENERIMAAN PESERTA DIDIK BARU</h2>
                     </center>
                     <div id="stepper1" class="bs-stepper">
                         <div style="width: 100%;overflow:auto;">
@@ -145,39 +145,12 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Alumni PP Al Hikmah 2 ?</label>
-                                        <select name="alumni" class="form-control" onchange="checkAlumni(this)">
-                                            <option value="-" selected disabled>- Pilih Jawaban -</option>
-                                            <option value="Tidak">Tidak</option>
-                                            <option value="Ya">Ya</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group d-none" id="asal_sekolah">
+                                    <div class="form-group" id="sebut_nama_sekolah">
                                         <label for="">Asal Sekolah</label>
-                                        <select class="form-control" onchange="setAlumni(this.value)">
-                                            <option value="-" selected disabled>- Pilih Jawaban -</option>
-                                            <option value="SMP AL HIKMAH 2">SMP AL HIKMAH 2</option>
-                                            <option value="MTS AL HIKMAH 2">MTS AL HIKMAH 2</option>
-                                            {{-- <option value="Madrasah Ibtida’iyah Tamrinussibyan">Madrasah Ibtida’iyah Tamrinussibyan</option>
-                                            <option value="TK AL HIKMAH 2">TK AL HIKMAH 2</option>
-                                            <option value="Tahfidzul Qur’an AL HIKMAH 2">Tahfidzul Qur’an AL HIKMAH 2</option> --}}
-                                        </select>
-                                    </div>
-                                    <div class="form-group d-none" id="sebut_nama_sekolah">
-                                        <label for="">Sebutkan Nama Sekolah</label>
                                         <input type="text" name="sebutkan_nama_sekolah" class="form-control">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Domisili</label>
-                                        <select name="domisili" class="form-control" onchange="checkDomisili(this)">
-                                            <option value="-" selected disabled>- Pilih Domisili -</option>
-                                            <option value="Warga Benda">Warga Benda</option>
-                                            <option value="Bukan Warga Benda">Bukan Warga Benda</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group d-none" id="ketik_alamat">
-                                        <label for="">Ketik alamat</label>
+                                    <div class="form-group" id="ketik_alamat">
+                                        <label for="">Alamat</label>
                                         <textarea name="alamat" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div>
@@ -199,33 +172,7 @@
                                                 <option value="" selected disabled>- Pilih -</option>
                                                 <option value="transfer bank">Transfer Bank</option>
                                                 <option value="bayar dilokasi (OTS)">Bayar dilokasi (OTS)</option>
-                                                <option value="tripay">Lainnya</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group payment tripay">
-                                            <label for="">Pembayaran</label>
-                                            {{-- <input type="hidden" name="payment_gateway" value="tripay"> --}}
-                                            <select name="tipe_pembayaran" class="form-control">
-                                                <option value="" selected>- Pilih -</option>
-                                                {{-- @foreach($duitku as $k => $v)
-                                                <option value="{{$k}}" class="payment duitku">{{$v}}</option>
-                                                @endforeach
-                                                @if(isset($tripay['data']))
-                                                @foreach($tripay['data'] as $k => $v)
-                                                @if(!$v['active'])
-                                                @continue
-                                                @endif
-                                                <option value="{{$v['code']}}" class="payment tripay">{{$v['name']}}</option>
-                                                @endforeach
-                                                @endif --}}
-                                                @if(isset($tripay['data']))
-                                                @foreach($tripay['data'] as $k => $v)
-                                                @if(!$v['active'])
-                                                @continue
-                                                @endif
-                                                <option value="{{$v['code']}}">{{$v['name']}}</option>
-                                                @endforeach
-                                                @endif
+                                                {{-- <option value="tripay">Lainnya</option> --}}
                                             </select>
                                         </div>
                                         <input type="hidden" name="biaya_pembayaran" value="125.000">

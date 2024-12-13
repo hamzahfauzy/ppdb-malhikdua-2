@@ -30,7 +30,6 @@
     <div class="d-flex h-100 justify-content-center align-items-center" style="margin:15px;">
         <div style="background-color: #FFF;padding:20px;max-width:500px;margin:auto;">
             <center>
-                <img src="{{asset('images/faktur.png')}}" alt="" width="100%" style="max-width: 400px">
                 <h2>Pendaftaran Selesai</h2>
                 <br>
                 <p>Terima kasih telah melakukan pendaftaran. Data pendaftaran sudah kami terima dan silahkan menunggu informasi selanjutnya.</p>
