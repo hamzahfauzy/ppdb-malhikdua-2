@@ -629,7 +629,7 @@ class HomeController extends Controller
                     'alamat'
                 ],
                 'rencana' => [
-                    'program','spesifikasi'
+                    'program','spesifikasi','extra_peminatan'
                 ],
                 'berkas' => [
                     'no_seri_shun',

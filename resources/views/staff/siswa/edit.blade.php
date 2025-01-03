@@ -140,6 +140,7 @@
     $("input[name='rencana[program]']").change(initProgram)
 
     function initProgram(){
+        return
         var el = $("input[name='rencana[program]']")
         $("#fg-spf").removeClass("d-none")
 

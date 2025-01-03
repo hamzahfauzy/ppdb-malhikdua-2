@@ -272,7 +272,7 @@ class SiswaController extends Controller
                 'alamat'
             ],
             'rencana' => [
-                'program','spesifikasi'
+                'program','spesifikasi','extra_peminatan'
             ],
             'berkas' => [
                 'no_seri_shun',
@@ -528,11 +528,11 @@ class SiswaController extends Controller
         $this->updateFormulir($formulir, "Diterima");
         $wa = new WaBlast;
         $wags = [
-            'Keagamaan' => 'https://bit.ly/WAG-Keagamaan',
-            'Olimpiade (IPA Unggulan)' => 'https://bit.ly/WAG-MA2IPA',
-            'Vokasi (IPA Regular)' => 'https://bit.ly/WAG-MA2IPA',
-            'Olimpiade (IPS Unggulan)' => 'https://bit.ly/WAG-MA2IPS',
-            'Vokasi (IPS Regular)' => 'https://bit.ly/WAG-MA2IPS'
+            'Keagamaan' => '',
+            'Olimpiade (IPA Unggulan)' => '',
+            'Vokasi (IPA Regular)' => '',
+            'Olimpiade (IPS Unggulan)' => '',
+            'Vokasi (IPS Regular)' => ''
         ];
         $program = [
             'Keagamaan' => 'Keagamaan',
